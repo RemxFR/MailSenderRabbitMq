@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  mailsenderrabbitmq:
+    build:
+      context: .
+    ports:
+      - "8083:8083"
+    environment:
+      - SERVER_PORT=8083
+
+networks:
+  default:
+    name: rabbitmq_network
+    external: true
+  mailhog:
+    name: mailhog
+    external: true
